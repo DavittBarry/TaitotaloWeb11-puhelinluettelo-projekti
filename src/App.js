@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import FilterButton from './components/FilterButton.js'
 
 const Persons = (props) => {
   return (
@@ -71,6 +72,7 @@ const App = () => {
           
         <div>
           <button  type="submit">add</button>
+          <FilterButton />
         </div>
         </form>
       <h2>Numbers</h2> 
