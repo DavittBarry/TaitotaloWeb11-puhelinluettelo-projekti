@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const Persons = (props) => {
-  return (
-      <p>{props.name} {props.number}</p>  
-  )
-}
+import Person from "./Person";
 
-export default Persons
+const Persons = ({ persons, handleDelete }) => (
+  <div>
+    {persons.map((person) => (
+      <Person key={person.id} person={person} handleDelete={handleDelete} />
+    ))}
+  </div>
+);
+
+export default Persons;
