@@ -72,15 +72,15 @@ const App = () => {
         <div>
           <AddButton />
         </div>
-        </form>
-        <form>
+      </form>
+      <form>
+        <div>
           <div>
-            <div>
-             Filter with: <input onChange={handleFilter} value={newFilter}/>
-            </div>
-          <FilterButton />
+            Filter with: <input onChange={handleFilter} value={newFilter}/>
           </div>
-        </form>
+          <FilterButton />
+        </div>
+      </form>
       <h2>Contacts</h2> 
         <div>
          {persons.map(person => <Persons key={person.name} name={person.name} number={person.number} /> )} 
