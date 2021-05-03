@@ -1,10 +1,24 @@
-import React from "react";
+import React from 'react';
+import personsService from '../services/personsService'
 
-const Person = ({ person, handleDelete }) => (
-  <div>
-    {person.name}: {person.number}{" "}
-    <button onClick={() => handleDelete(person.id, person.name)}>Delete</button>
-  </div>
+const removePerson = (person, persons, setPersons, setNotification) => {
+	if (window.confirm(`Delete ${person.name}?`)) { 
+		personsService
+		.remove(person.id)
+		.then(status => {
+		  	const newPersons = persons.filter(p => p.id !== person.id);
+			setPersons(newPersons);
+			setNotification(`Deleted ${person.name}`);
+		})
+		.catch(error => setNotification(`Information of ${person.name} has already been removed from server`, true));
+	}
+};
+
+const Person = ({person, persons, setPersons, setNotification}) => (
+	<div>
+		{person.name} {person.number}
+		<button onClick={() => removePerson(person, persons, setPersons, setNotification)}>delete</button>
+	</div>
 );
 
 export default Person;

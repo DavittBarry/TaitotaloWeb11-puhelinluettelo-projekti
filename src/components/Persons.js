@@ -1,13 +1,12 @@
-import React from "react";
+import React from 'react';
+import Person from './person';
 
-import Person from "./Person";
-
-const Persons = ({ persons, handleDelete }) => (
-  <div>
-    {persons.map((person) => (
-      <Person key={person.id} person={person} handleDelete={handleDelete} />
-    ))}
-  </div>
+const Persons = ({persons, filter, setPersons, setNotification}) => (
+	<div>
+		{persons
+	      	.filter(person => person.name.toUpperCase().includes(filter.toUpperCase()))
+	      	.map(person => <Person key={person.name} person={person} persons={persons} setPersons={setPersons} setNotification={setNotification} />)}
+	</div>
 );
 
 export default Persons;
