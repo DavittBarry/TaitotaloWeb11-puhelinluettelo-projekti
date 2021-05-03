@@ -7,20 +7,14 @@ import NameInput from './components/NameInput.js'
 const Persons = (props) => {
   return (
       <p>{props.name} {props.number}</p>
-      
   )
 }
 
 const App = () => {
-  const [ persons, setPersons] = useState([
-    { name: 'Davitt Barry', 
-    number: '0440998004', }
-  ]) 
+  const [ persons, setPersons] = useState([{ name: 'Davitt Barry', number: '0440998004', }]) 
   const [ newName, setNewName ] = useState('')
   const [ newFilter, setNewFilter ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
-
-
 
   const handlePersonChange = (event) => {
     console.log(event.target.value)
@@ -73,26 +67,17 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
       <form onSubmit={addPerson}>
-        
         <NameInput  onChange={handlePersonChange} value={newName}/>
-        
-        
-        
-        <div></div>
-          <NumberInput onChange={handleNumberChange} value={newNumber}/>
-          
-
-       
-          
+        <NumberInput onChange={handleNumberChange} value={newNumber}/>   
         <div>
           <AddButton />
         </div>
         </form>
         <form>
           <div>
-          <div>
-          Filter with: <input onChange={handleFilter} value={newFilter}/>
-          </div>
+            <div>
+             Filter with: <input onChange={handleFilter} value={newFilter}/>
+            </div>
           <FilterButton />
           </div>
         </form>
