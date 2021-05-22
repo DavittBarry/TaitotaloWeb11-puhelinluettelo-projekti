@@ -4,7 +4,7 @@ import React from 'react'
 const NumberInput = ( {onChange, newNumber} ) => {
     return (
         <div>
-        Number: <input onChange={onChange} value={newNumber}/></div>
+        Message: <input onChange={onChange} value={newNumber}/></div>
     )
   }
 

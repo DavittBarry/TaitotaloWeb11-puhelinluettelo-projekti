@@ -6,12 +6,12 @@ import NameInput from './components/NameInput.js'
 
 const Persons = (props) => {
   return (
-      <p>{props.name} {props.number}</p>
+      <p><strong>{props.name} says:</strong> {props.number}</p>
   )
 }
 
 const App = () => {
-  const [ persons, setPersons] = useState([{ name: 'Davitt Barry', number: '0440998004', }]) 
+  const [ persons, setPersons] = useState([{ name: 'Davitt Barry', number: 'Welcome to the chat! Leave a message.', }]) 
   const [ newName, setNewName ] = useState('')
   const [ newFilter, setNewFilter ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
@@ -65,7 +65,7 @@ const App = () => {
   
   return (
     <div>
-      <h2>Phonebook</h2>
+      <h2>Live Chat</h2>
       <form onSubmit={addPerson}>
         <NameInput  onChange={handlePersonChange} value={newName}/>
         <NumberInput onChange={handleNumberChange} value={newNumber}/>   
@@ -81,7 +81,7 @@ const App = () => {
           <FilterButton />
         </div>
       </form>
-      <h2>Contacts</h2> 
+      <h2>Messages</h2> 
         <div>
          {persons.map(person => <Persons key={person.name} name={person.name} number={person.number} /> )} 
         </div>
